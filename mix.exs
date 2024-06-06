@@ -11,6 +11,8 @@ defmodule LiveStreamAsync.MixProject do
 
       # Docs
       name: "LiveStreamAsync",
+      description: "LivewView: assigns stream keys asynchronously with stream_async/4 macro.",
+      package: package(),
       source_url: "https://github.com/utopos/live_stream_async",
       docs: [
         # The main page in the docs
@@ -33,6 +35,16 @@ defmodule LiveStreamAsync.MixProject do
       {:ex_doc, "~> 0.34", only: :dev, runtime: false}
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+    ]
+  end
+
+  def package() do
+    [
+      maintainers: ["Jakub Lambrych"],
+      licenses: ["MIT"],
+      links: %{
+        GitHub: "https://github.com/utopos/live_stream_async"
+      }
     ]
   end
 end
