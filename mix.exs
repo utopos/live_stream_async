@@ -5,7 +5,7 @@ defmodule LiveStreamAsync.MixProject do
     [
       app: :live_stream_async,
       version: "0.1.1",
-      elixir: ">= 1.16",
+      elixir: ">= 1.16.0",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
 
