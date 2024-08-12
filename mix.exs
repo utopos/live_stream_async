@@ -5,7 +5,7 @@ defmodule LiveStreamAsync.MixProject do
     [
       app: :live_stream_async,
       version: "0.1.1",
-      elixir: ">= 1.16.0",
+      elixir: ">= 1.16.1",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
 
@@ -16,7 +16,8 @@ defmodule LiveStreamAsync.MixProject do
       source_url: "https://github.com/utopos/live_stream_async",
       docs: [
         # The main page in the docs
-        main: "LiveStreamAsync"
+        main: "LiveStreamAsync",
+        extras: ["README.md"]
       ]
     ]
   end
