@@ -20,11 +20,11 @@ defmodule LiveStreamAsync do
 
   ### Extending LiveView
 
-  Extend your live view module with `use LiveAsyncStream` and you can leverage the `stream_async/4` macro:
+  Extend your live view module with `use LiveStreamAsync` and you can leverage the `stream_async/4` macro:
 
   ```elixir
   use MyAppWeb, :live_view
-  use LiveAsyncStream
+  use LiveStreamAsync
 
   def mount(%{"location" => location}, _, socket) do
   {:ok,
@@ -109,7 +109,7 @@ defmodule LiveStreamAsync do
   ## Example
   ```elixir
     use MyAppWeb, :live_view
-    use LiveAsyncStream
+    use LiveStreamAsync
 
     def mount(%{"location" => location}, _, socket) do
     {:ok,
