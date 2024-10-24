@@ -66,21 +66,23 @@ defmodule LiveStreamAsync do
 
   defmacro __before_compile__(_env) do
     streams = Module.get_attribute(__CALLER__.module, :async_streams)
+    opts = Enum.into(streams, [])
+    keys = Keyword.keys(opts)
 
-    for {stream_id, opts} <- streams do
-      quote bind_quoted: [stream: stream_id, opts: opts] do
-        def handle_async(stream, {:ok, results}, socket) do
+    if keys != [] do
+      quote location: :keep, bind_quoted: [keys: keys, opts: opts] do
+        def handle_async(key, {:ok, results}, socket) when key in unquote(keys) do
           socket =
             socket
-            |> assign(stream, AsyncResult.ok(stream))
-            |> stream(stream, results, unquote(opts))
+            |> assign(key, AsyncResult.ok(key))
+            |> stream(key, results, unquote(opts)[key])
 
           {:noreply, socket}
         end
 
-        def handle_async(stream, {:exit, reason}, socket) do
+        def handle_async(key, {:exit, reason}, socket) when key in unquote(keys) do
           {:noreply,
-           update(socket, stream, fn async_result ->
+           update(socket, key, fn async_result ->
              AsyncResult.failed(async_result, {:exit, reason})
            end)}
         end
