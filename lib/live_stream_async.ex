@@ -70,7 +70,7 @@ defmodule LiveStreamAsync do
     keys = Keyword.keys(opts)
 
     if keys != [] do
-      quote location: :keep, bind_quoted: [keys: keys, opts: opts] do
+      quote do
         def handle_async(key, {:ok, results}, socket) when key in unquote(keys) do
           socket =
             socket
