@@ -34,11 +34,11 @@ The docs can be found at <https://hexdocs.pm/live_stream_async>.
 
   ### Extending LiveView
 
-  Extend your live view module with `use LiveAsyncStream` and you can leverage the `stream_async/4` macro:
+  Extend your live view module with `use LiveStreamAsync` and you can leverage the `stream_async/4` macro:
 
   ```elixir
   use MyAppWeb, :live_view
-  use LiveAsyncStream
+  use LiveStreamAsync
 
   def mount(%{"location" => location}, _, socket) do
   {:ok,
