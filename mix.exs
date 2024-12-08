@@ -6,6 +6,8 @@ defmodule LiveStreamAsync.MixProject do
       app: :live_stream_async,
       version: "0.1.1",
       elixir: ">= 1.16.1",
+      elixirc_paths: elixirc_paths(Mix.env()),
+      elixirc_options: [ignore_module_conflict: true],
       start_permanent: Mix.env() == :prod,
       deps: deps(),
 
@@ -22,6 +24,11 @@ defmodule LiveStreamAsync.MixProject do
     ]
   end
 
+  # Specifies which paths to compile per environment.
+  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(:dev), do: ["lib"]
+  defp elixirc_paths(_), do: ["lib"]
+
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
@@ -33,9 +40,8 @@ defmodule LiveStreamAsync.MixProject do
   defp deps do
     [
       {:phoenix_live_view, ">= 0.20.0"},
-      {:ex_doc, "~> 0.34", only: :dev, runtime: false}
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      {:ex_doc, "~> 0.34", only: :dev, runtime: false},
+      {:phoenix_playground, "~> 0.1.6", only: :test, runtime: false}
     ]
   end
 
