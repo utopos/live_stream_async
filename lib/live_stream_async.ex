@@ -4,19 +4,19 @@ defmodule LiveStreamAsync do
 
      Similar to existing `assign_async/4`, but for streams.
 
-     ## Installation
+  # Installation
 
      The package can be installed by adding `live_stream_async` to your list of dependencies in `mix.exs`:
 
-     ## Async streams
+  # Async streams
 
      Streams in LiveView allow working with large collections without keeping them on the server. In case you want to work with `streams` assigns asynchronously you may need to resort to low level control functions.
 
      This library provides a convenient macro `stream_async/4` that auto-generates all the necessary boilerplate behind the scenes and injects it into your LiveView module.
 
-     ## Usage
+  # Usage
 
-     ### Extending Live View
+  ## Extending Live View
 
      Extend your live view module with `use LiveStreamAsync` and you can leverage the `stream_async/4` macro:
 
@@ -33,7 +33,7 @@ defmodule LiveStreamAsync do
      end
      ```
 
-     ### Accessing the result
+  ## Accessing the result
 
      The `<.async_result ...>` component is designed to work with the `%Phoenix.LiveView.AsyncResult{}` structs. The struct is passed via "`assign={}`" attribute of the component. The component's inner block receives the `@streams` assign key through `:let={}` attribute.
 
@@ -57,7 +57,7 @@ defmodule LiveStreamAsync do
 
      **Note**: in the example above just replace "@hotels" with the id of your stream.
 
-     ## New asynchronous operations in LiveView v.20
+  # New asynchronous operations in LiveView v.20
 
      New release of [LiveView library - v 0.20](https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html) - introduced built-in functions for [asynchronous work](https://hexdocs.pm/phoenix_live_view/0.20.14/Phoenix.LiveView.html#module-async-operations). It's a perfect solution to deliver a snappy user experience by delegating some time-consuming tasks (ex. fetching from external services) to background jobs without blocking the UI or event handlers. New operations include:
 
