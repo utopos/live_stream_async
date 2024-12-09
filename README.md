@@ -4,6 +4,7 @@ Extends Phoenix LiveView with `stream_async/4` macro.
 
 Similar to existing `assign_async/4`, but for streams.
 
+
 ## Installation
 
 The package can be installed by adding `live_stream_async` to your list of dependencies in `mix.exs`:
