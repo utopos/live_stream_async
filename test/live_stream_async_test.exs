@@ -91,14 +91,14 @@ defmodule LiveStreamAsyncTest do
 
   test "returns stream async after some time" do
     {:ok, view, _html} = live(build_conn(), "/")
-    assert eventually(fn -> render(view) =~ "Belo Horizonte Palace" end)
+    assert render_async(view, 1000) =~ "Belo Horizonte Palace"
 
-    assert render(view) =~ "Manaus Rainforest Lodge"
+    assert render_async(view, 1000) =~ "Manaus Rainforest Lodge"
   end
 
   test "evaluates opts correctly (limit)" do
     {:ok, view, _html} = live(build_conn(), "/")
-    assert eventually(fn -> render(view) =~ "Fogo de Chão - São Paulo" end)
+    assert render_async(view, 1000) =~ "Fogo de Chão - São Paulo"
     rendered = render(view)
     assert rendered =~ "D.O.M. - São Paulo"
     refute rendered =~ "Oro - Rio de Janeiro"
