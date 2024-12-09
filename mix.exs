@@ -4,7 +4,7 @@ defmodule LiveStreamAsync.MixProject do
   def project do
     [
       app: :live_stream_async,
-      version: "0.1.1",
+      version: "0.1.2",
       elixir: ">= 1.16.1",
       elixirc_paths: elixirc_paths(Mix.env()),
       elixirc_options: [ignore_module_conflict: true],
